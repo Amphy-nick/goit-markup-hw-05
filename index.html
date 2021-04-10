@@ -59,7 +59,20 @@
             </div>
             </section>
 
+            <!-- Modal window -->
+
+            <div class="modal-backdrop is-hidden">
+                <div class="modal">
+                    <button class="modal-close-button">
+                        <svg class="icon">
+                            <use href="./images/svg-icons/sprite.svg#icon-modal-exit"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
             <!-- Advantages-section -->
+
             <section class="advantages section">
             <div class="container">
                 <h2 class="section-title visually-hidden">Студия</h2>
@@ -95,9 +108,30 @@
             <div class="container">
                 <h2 class="section-title portfolio-main-title">Чем мы занимаемся</h2>
                 <ul class="portfоlio-list list grid">
-                    <li class="portfolio-item grid-item"><img src="./images/img(1).jpg" alt="Написание кода" width="370"></li>
-                    <li class="portfolio-item grid-item"><img src="./images/img(2).jpg" alt="Оптимизация данных" width="370"></li>
-                    <li class="portfolio-item grid-item"><img src="./images/img(3).jpg" alt="Палитра цветов" width="370" height="246"></li>
+                    <li class="portfolio-item grid-item">
+                        <div class="portfolio-main-thumb">
+                        <img src="./images/img(1).jpg" alt="Написание кода" width="370">
+                        <div class="portfolio-main-description">
+                            <p class="portfolio-main-text">десктопные приложения</p>
+                        </div>
+                    </div>
+                    </li>
+                    <li class="portfolio-item grid-item">
+                        <div class="portfolio-main-thumb">
+                        <img src="./images/img(2).jpg" alt="Оптимизация данных" width="370">
+                        <div class="portfolio-main-description">
+                            <p class="portfolio-main-text">мобильные приложения</p>
+                    </div>
+                    </div>
+                    </li>
+                    <li class="portfolio-item grid-item">
+                        <div class="portfolio-main-thumb">
+                        <img src="./images/img(3).jpg" alt="Палитра цветов" width="370" height="246">
+                        <div class="portfolio-main-description">
+                            <p class="portfolio-main-text">дизайнерские решения</p>
+                        </div>
+                    </div>
+                    </li>
                 </ul>
             </div>
             </section>
@@ -341,6 +375,7 @@
                         </li>
                     </ul>
                 </address>
+        
             </div>
             <div class="footer-social-links">
                 <p class="footer-block-title">присоединяйтесь</p>
@@ -375,6 +410,11 @@
                         </a>
                     </li>
                 </ul>
+                
+            </div>
+            <div class="footer-form-part">
+                <p class="footer-form-title">Подпишитесь на рассылку</p>
+              
             </div>
             </div>
         </footer>
