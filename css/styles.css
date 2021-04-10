@@ -81,6 +81,7 @@ img {
   padding-top: 24px;
   padding-bottom: 25px;
   border: 1px solid #ececec;
+  position: relative;
 }
 
 .header .container {
@@ -112,6 +113,17 @@ img {
 
 .header .current {
   color: var(--accent-text-color);
+}
+
+.current::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: currentColor;
+  position: absolute;
+  bottom: 0;
 }
 
 .nav-link-item {
