@@ -11,6 +11,8 @@
   --main-text-font: 'Roboto', sans-serif;
 
   --grid-item: 3;
+
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -39,11 +41,7 @@ body {
 
 a {
   text-decoration: none;
-}
-
-a:focus,
-button:focus {
-  outline: none;
+  transition: color var(--animation);
 }
 
 .list {
@@ -174,6 +172,7 @@ img {
   height: 12px;
   margin-right: 10px;
   fill: currentColor;
+  transition: fill var(--animation);
 }
 
 .contacts-link-item-header .icon-phone {
@@ -181,6 +180,7 @@ img {
   height: 16px;
   margin-right: 10px;
   fill: currentColor;
+  transition: fill var(--animation);
 }
 
 .contacts-link-item-header:hover .icon-phone,
@@ -198,6 +198,8 @@ img {
   cursor: pointer;
   border: 0;
   border-radius: 4px;
+  transition: color var(--animation), background-color var(--animation),
+    box-shadow var(--animation);
 }
 
 .main-button {
@@ -241,54 +243,6 @@ img {
   line-height: 1.16;
   text-align: center;
   letter-spacing: 0.03em;
-}
-
-/* Modal window */
-
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.modal-backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 528px;
-  min-height: 581px;
-  background: var(--main-bg-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.modal-close-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-  background: var(--main-bg-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-}
-
-.modal-close-button .icon {
-  width: 18px;
-  height: 18px;
 }
 
 /* PAGE 1 (MAIN)*/
@@ -508,6 +462,7 @@ img {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: fill var(--animation), background-color var(--animation);
 }
 
 .our-team .social-icons-link {
@@ -547,6 +502,7 @@ img {
   background-color: var(--main-bg-color);
   border: 1px solid var(--main-icon-color);
   border-radius: 4px;
+  transition: fill var(--animation), border var(--animation);
 }
 
 .regular-customers-list li:nth-child(1) svg {
@@ -581,8 +537,7 @@ img {
 
 .regular-customers-link:hover,
 .regular-customers-link:focus {
-  fill: var(--accent-text-color);
-  border-color: var(--accent-text-color);
+  --main-icon-color: var(--accent-text-color);
 }
 
 /* Footer */
@@ -665,6 +620,7 @@ img {
   width: 20px;
   height: 20px;
   fill: var(--main-bg-color);
+  transition: background-color var(--animation);
 }
 
 .footer .social-icons-link {
@@ -725,6 +681,7 @@ img {
 .portfolio-filter-link-item {
   display: inline-block;
   cursor: pointer;
+  transition: box-shadow var(--animation);
 }
 
 .portfolio-filter-link-item:hover,
@@ -743,22 +700,26 @@ img {
 
 .portfolio-image-thumb {
   position: relative;
+  overflow: hidden;
 }
 
 .portfolio-description {
   position: absolute;
   top: 0;
   left: 0;
+  transform: translate(0, 100%);
   opacity: 0;
   width: 100%;
   height: 100%;
   padding: 63px 24px;
+  transition: transform var(--animation);
 }
 
 .portfolio-filter-link-item:hover .portfolio-description,
 .portfolio-filter-link-item:focus .portfolio-description {
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 1;
+  transform: translate(0, 0);
 }
 
 .description-text {
@@ -767,4 +728,69 @@ img {
   line-height: 1.5;
   letter-spacing: 0.03em;
   color: var(--main-bg-color);
+}
+
+/* Modal window */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 500ms ease-out 200ms;
+}
+
+.modal-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100%;
+  max-width: 528px;
+  min-height: 581px;
+  background: var(--main-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 300ms ease-out 1ms;
+}
+
+.is-hidden .modal {
+  transform: translate(100%, 100%) scale(0.2);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--main-bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.modal-close-button .icon {
+  width: 18px;
+  height: 18px;
+  transition: fill var(--animation);
+}
+
+.modal-close-button:hover .icon,
+.modal-close-button:focus .icon {
+  fill: rgb(243, 17, 17);
 }
