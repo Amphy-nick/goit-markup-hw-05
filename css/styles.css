@@ -715,7 +715,8 @@ img {
   width: 100%;
   height: 100%;
   padding: 63px 24px;
-  transition: transform var(--animation);
+  transition: transform var(--animation), opacity var(--animation),
+    background-color var(--animation);
 }
 
 .portfolio-filter-link-item:hover .portfolio-description,
